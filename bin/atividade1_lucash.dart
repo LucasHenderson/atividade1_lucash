@@ -2,7 +2,17 @@ import 'package:atividade1_lucash/atividade1_lucash.dart' as atividade1_lucash;
 
 import 'dart:io';
 
-class Carro {
+mixin Volante {
+  void dirigir() {
+    print("Dirigindo...");
+  }
+
+  void virar() {
+    print("Virando...");
+  }
+}
+
+class Carro with Volante {
   // Propriedades da classe
   String marca;
   int ano;
@@ -27,6 +37,25 @@ class Carro {
     print('Ano: $ano');
   }
 }
+
+abstract class Animal {
+  void emitirSom();
+}
+
+class Cachorro extends Animal {
+  @override
+  void emitirSom() {
+    print("Au au!");
+  }
+}
+
+class Gato extends Animal {
+  @override
+  void emitirSom() {
+    print("Miau!");
+  }
+}
+
 
 void main(List<String> arguments) {
   /*
@@ -178,6 +207,20 @@ void main(List<String> arguments) {
   meuCarro.modelo = 'Camry';
   meuCarro.exibirInformacoes();
   meuCarro.modelo = '';  // Isso vai imprimir a mensagem de erro
+  
+  //19 - Herança: Crie uma classe Animal com um método emitirSom(), e classes Cachorro e Gato 
+  //que herdam Animal e implementam emitirSom().
+  // Criando instâncias das classes
+  Animal cachorro = Cachorro();
+  Animal gato = Gato();
+
+  cachorro.emitirSom();
+  gato.emitirSom();
+  
+  //20 - Mixin: Crie um mixin chamado Volante e aplique-o a uma classe Carro.
+  Carro carro = Carro("Ferrari", "La ferrari", 2020);
+  carro.dirigir();
+  carro.virar();
   */
 }
 
